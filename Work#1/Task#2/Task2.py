@@ -8,3 +8,19 @@
 # то треугольника с такими сторонами не существует. 
 # Отдельно сообщить является ли треугольник разносторонним, равнобедренным или равносторонним.
 
+
+a = float(input(f'Enter the triangle side a : '))
+b = float(input(f'Enter the triangle side b : '))
+c = float(input(f'Enter the triangle side c : '))
+
+if a + b > c and a + c > b and b + c > a:
+#    print("Triangle exist")
+    if a != b and a != c and b != c:
+        print("Triangle versatile(разносторонний)")
+    elif  a == b == c:
+        print("Triangle is equilateral(равносторонний)")
+    else:
+    #    elif a == b or b == c or c == a:     
+        print("Triangle is isosceles(равнобедренный)")
+else:
+    print("Triangle dont exist")
