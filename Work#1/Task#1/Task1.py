@@ -3,7 +3,10 @@
 # Условие
 # 1. Решить задачи, которые не успели решить на семинаре.
 
+#-----------
 #Задача №5
+#-----------
+
 # LOWER_LIMIT = 2
 # UPPER_LIMET = 10
 # COLUMN = 4
@@ -15,7 +18,10 @@
 #         print()
 #     print()
 
+#-----------
 # Задача №6
+#-----------
+
 # REFORM = 1582
 # BIG_LEAP_YERA = 400
 # SMALL_LEAP_YEAR = 4
@@ -23,7 +29,6 @@
 # MULTIPLE = 0
 
 # year = int(input("Enter the year: "))
-
 # if year < REFORM:
 #     res = "Grigoria calendar dont enter"
 # elif year % BIG_LEAP_YERA == MULTIPLE:
@@ -36,7 +41,10 @@
 #     res = f'{year} - Dont leap year'
 # print(res)
 
+#-----------
 # Задача №7
+#-----------
+
 # LOWER_LIMIT = 1
 # UPPER_LIMIT = 9999
 # ONE = 1
@@ -61,16 +69,19 @@
 #     res = f'Number {num} - third number and mirror = {mirror}'
 # print(res)
 
+#-----------
 # Задача №8
-SPACE = ' '
-STAR = '*'
-ONE = 1
-TWO = 2
+#-----------
 
-rows = int(input('Enter the number rows: '))
-spaces = rows - ONE
-stars = ONE
-for i in range(rows):
-    print(spaces * SPACE + stars * STAR)
-    spaces -= ONE
-    stars += TWO
+# SPACE = ' '
+# STAR = '*'
+# ONE = 1
+# TWO = 2
+
+# rows = int(input('Enter the number rows: '))
+# spaces = rows - ONE
+# stars = ONE
+# for i in range(rows):
+#     print(spaces * SPACE + stars * STAR)
+#     spaces -= ONE
+#     stars += TWO
