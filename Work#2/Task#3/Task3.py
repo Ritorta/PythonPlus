@@ -3,13 +3,15 @@
 
 import fractions
 
-f1 = fractions.Fraction(5, 5)
-f2 = fractions.Fraction(5, 5)
+f1 = fractions.Fraction(0, 5)
+f2 = fractions.Fraction(0, 5)
 
 print(f'Cheak Sum Fraction: {f1 + f2}')
 print(f'Cheak Mulyplay Fraction: {f1 * f2}')
 
 from math import gcd
+
+ZERO = 0
 
 while True:
     try:
@@ -25,6 +27,8 @@ while True:
             sump_den = fraction_sum_den // value_gcd
             if sump_num > sump_den:
                 print(f'Sumple Fraction = {sump_num}')
+            elif num1 & num2 == ZERO:
+                print(f'Sumple Fraction = {ZERO}')
             else:
                 print(f'Sumple Fraction = {sump_num}/{sump_den}')
             
@@ -37,6 +41,8 @@ while True:
             sumple_sum_den = fraction_sum_den // value_gcd
             if sumple_sum_num > sumple_sum_den:
                 print(f'Sumple Fraction = {sumple_sum_num}')
+            elif num1 & num2 == ZERO:
+                print(f'Sumple Fraction = {ZERO}')
             else:
                 print(f'Sumple Fraction = {sumple_sum_num}/{sumple_sum_den}')
             
@@ -46,7 +52,7 @@ while True:
         value_gcd = gcd(fraction_mult_num, fraction_mult_del)
         sumple_multp_num = fraction_mult_num // value_gcd
         sumple_multp_del = fraction_mult_del // value_gcd
-        if sumple_multp_num == sumple_multp_del:
+        if sumple_multp_num == sumple_multp_del & fraction_mult_num == ZERO:
             print(f'Sumple Multyplay Fraction = {sumple_multp_num}')
             break
         else:
@@ -56,5 +62,3 @@ while True:
     except (ValueError, ZeroDivisionError) as e:
         print(f'Error {e}, please try again, enter the correct number or split "/" your faction.')
         continue
-
-
