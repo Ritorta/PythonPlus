@@ -24,4 +24,3 @@ while True:
     except ValueError:
         print('Error, please enter the number.')
         continue
-
