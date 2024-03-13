@@ -138,8 +138,43 @@
 # Обратите внимание на порядок ключей.
 # Объясните почему они совпадают или несовпадают в ваших решениях.
 
+# data = input('Enter the string: ')
 
+
+# my_dict_count = {}
+
+# for char in set(data):
+#     my_dict_count[char] = data.count(char)
+# print(my_dict_count)
+
+# my_dict_dont_count = {}
+
+# for char in data:
+#     if char not in my_dict_dont_count:
+#         my_dict_dont_count[char] = 1
+#     else:
+#         my_dict_dont_count[char] += 1
+
+# print(my_dict_dont_count)
+
+# my_dict_get = {}
+
+# for char in data:
+#     my_dict_get[char] = my_dict_get.get(char, 0) + 1
+
+# print(my_dict_get)
 
 #-----------
 #Задача №8
 #-----------
+
+# Три друга вщяли вещи в поход. Сформируйте словарь, 
+# где ключ - имя друга, а значение - кортеж вещей.
+# Ответьте на вопросы:
+# Какие вещи взяли все три друга
+# Какие вещи уникальны, есть только у одного друга
+# Какие вещи есть у всех друзей кроме одного и имя того,
+# у кого данная вещь отсуствует
+# Для решения используйте операции с множествами. Код должен 
+# расшираться на любое большие количество друзей.
+
