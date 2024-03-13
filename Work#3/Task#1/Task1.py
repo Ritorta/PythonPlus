@@ -178,4 +178,39 @@
 # Для решения используйте операции с множествами. Код должен 
 # расшираться на любое большие количество друзей.
 
-2^15
+hike = { 
+    'Aaz' : ("спички", "спальник", "дрова", "топор"),
+    'Skeeve' : ("спальник", "спички", "вода", "еда"),
+    'Tananda' : ("вода", "спички", "косметичка", "топор"),
+}
+
+all_things = set()
+for things in hike.values():
+    # for thing in things:
+    #     all_things.add(things)
+    all_things.update(things)
+
+print(f'List all things: {all_things}')
+
+unique_things = {}
+
+for master_friend, master_things in hike.items():
+    for slave_friend, slave_things in hike.items():
+        if master_friend != slave_friend:
+            if master_friend not in unique_things:
+                unique_things[master_friend] = set(master_things) - set(slave_things)
+            else:
+                unique_things[master_friend] -= set(slave_things)
+
+print(f'List unique things: {unique_things}')
+
+doublelicate_things = set(all_things)
+
+for things in unique_things.values():
+    doublelicate_things -= things
+
+print(f'List duable things: {doublelicate_things}')
+
+for friend, things in hike.items():
+    print(f'{friend} dont things {doublelicate_things - set(things)}')
+   # print(f' Second variation: {friend} dont things {(set(things) ^ doublelicate_things) - set(unique_things[friend])}')
