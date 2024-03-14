@@ -29,6 +29,6 @@
 #-------------
 
 dublecate_list = [42, 1, 73, 5, 42, 42, 1, 2, 2, 5, 5, 2, 1, 2, 3, 7, 1, 73, 42]
-result_list = list(dict.fromkeys(dublecate_list))
+result_list = list(dict.fromkeys(dublecate_list).keys())
 
 print(f'Dublicate list = {dublecate_list}\nResult list = {result_list}')
