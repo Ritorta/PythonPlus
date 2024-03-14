@@ -195,4 +195,3 @@ while True:
         print(f'About credited {ADD_PERCENT}% for {bonus_percent} y.e\n'
               f'Balance credit card {account_balance} y.e')
          
-            
