@@ -28,7 +28,7 @@ MIN_REMOVAL = decimal.Decimal(30)
 COUNT_OPEN = decimal.Decimal(3)
 
 account_balance = decimal.Decimal(0)
-amount = 0
+amount = decimal.Decimal(0)
 count = 0
 list_operations = []
 
@@ -46,7 +46,7 @@ def add_money():
             break
     account_balance += amount        
     count += 1
-    list_operations.append(("Deposit", amount))
+    list_operations.append(("Account replenishment:", amount))
     print(f'Credit card replenishment {amount},\n'
             f'Total left on the credit card {account_balance} y.e')
     return 0
@@ -56,6 +56,7 @@ def take_money():
     global account_balance
     global amount
     global count
+    global list_operations
     cheack_ruch()
     bonus_prochent()
     while True:
@@ -64,11 +65,12 @@ def take_money():
             break
     withdraw_tax = amount * WITHDRAW_PERCENT
     withdraw_tax = (MIN_REMOVAL if withdraw_tax < MIN_REMOVAL 
-        else MAX_REMOVAL if withdraw_tax > MAX_REMOVAL else withdraw_tax)
+                    else MAX_REMOVAL if withdraw_tax > MAX_REMOVAL else withdraw_tax)
     
     if account_balance >= amount + withdraw_tax:
         count += 1
         account_balance -= (amount + withdraw_tax)
+        list_operations.append(("Account withdrawal", amount))
         print(f'Credit card withdrawal {amount} y.e\n'
                 f'commission for withdrawal {withdraw_tax} y.e\n'
                 f'There is still money left on the credit card {account_balance} y.e')
@@ -113,7 +115,8 @@ def main():
         elif num == 2:
             take_money()
         elif num == 3:
-            print(f'Please, take your credit cart, your balance {account_balance} y.e, Good bye!')
+            print(f'Please, take your credit cart, your balance {account_balance} y.e, Good bye!\n'
+                  f'List operations: {list_operations}')
             return exit(0) 
     
 main()
