@@ -46,7 +46,7 @@ def add_money():
             break
     account_balance += amount        
     count += 1
-    list_operations.append(("Account replenishment:", amount))
+    list_operations.append((f'Account replenishment - {amount}'))
     print(f'Credit card replenishment {amount},\n'
             f'Total left on the credit card {account_balance} y.e')
     return 0
@@ -70,7 +70,7 @@ def take_money():
     if account_balance >= amount + withdraw_tax:
         count += 1
         account_balance -= (amount + withdraw_tax)
-        list_operations.append(("Account withdrawal", amount))
+        list_operations.append((f'Account withdrawal - {amount}'))
         print(f'Credit card withdrawal {amount} y.e\n'
                 f'commission for withdrawal {withdraw_tax} y.e\n'
                 f'There is still money left on the credit card {account_balance} y.e')
@@ -102,6 +102,11 @@ def bonus_prochent():
     return 0
 
 
+def show_list_operations():
+    print(f'List operations: {list_operations}')
+    return 0
+
+
 def main():
     while True:
         num = int(input('Bancomat menu:\n'
@@ -115,8 +120,9 @@ def main():
         elif num == 2:
             take_money()
         elif num == 3:
-            print(f'Please, take your credit cart, your balance {account_balance} y.e, Good bye!\n'
-                  f'List operations: {list_operations}')
-            return exit(0) 
+            print(f'Please, take your credit cart, your balance {account_balance} y.e, Good bye!')
+            return exit(0)
+        elif num == 4:
+            show_list_operations() 
     
 main()
