@@ -15,9 +15,6 @@ import decimal
 
 decimal.getcontext().prec = 10
 
-CMD_DEPOSIT = 'p'
-CMD_WITHDRAW = 'c'
-CMD_EXIT = 'e'
 RICHNESS_SUM = decimal.Decimal(5_000_000)
 RICHNESS_TAX = decimal.Decimal(10) / decimal.Decimal(100)
 WITHDRAW_PERCENT = decimal.Decimal(15) / decimal.Decimal(1000)
@@ -103,7 +100,8 @@ def bonus_prochent():
 
 
 def show_list_operations():
-    print(f'List operations: {list_operations}')
+    for index, operation in enumerate(list_operations, start = 1):
+        print(f'Operation №: {index}. {operation} y.e')
     return 0
 
 
@@ -122,7 +120,7 @@ def main():
         elif num == 3:
             print(f'Please, take your credit cart, your balance {account_balance} y.e, Good bye!')
             return exit(0)
-        elif num == 4:
+        elif num == 9:
             show_list_operations() 
     
 main()
