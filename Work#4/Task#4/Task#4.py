@@ -23,104 +23,113 @@ MULTIPLICITY = decimal.Decimal(50)
 MAX_REMOVAL = decimal.Decimal(600)
 MIN_REMOVAL = decimal.Decimal(30)
 COUNT_OPEN = decimal.Decimal(3)
+ACCOUNT_BALANCE = decimal.Decimal(0)
+AMOUNT = decimal.Decimal(0)
+COUNT = 0
 
-account_balance = decimal.Decimal(0)
-amount = decimal.Decimal(0)
-count = 0
 list_operations = []
 
-
+# The function of adding money to a bank account
 def add_money():
-    global account_balance
-    global amount
-    global count
+    global ACCOUNT_BALANCE
+    global AMOUNT
+    global COUNT
     global list_operations
     cheack_ruch()
     bonus_prochent()
     while True:
-        amount = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
-        if amount % 50 == 0:
+        AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
+        if AMOUNT % 50 == 0:
             break
-    account_balance += amount        
-    count += 1
-    list_operations.append((f'Account replenishment - {amount}'))
-    print(f'Credit card replenishment {amount},\n'
-            f'Total left on the credit card {account_balance} y.e')
+    ACCOUNT_BALANCE += AMOUNT        
+    COUNT += 1
+    list_operations.append((f'Account replenishment - {AMOUNT}'))
+    print(f'Credit card replenishment {AMOUNT},\n'
+            f'Total left on the credit card {ACCOUNT_BALANCE} y.e')
     return 0
 
-
+# The function of withdrawing money from a bank account
 def take_money():
-    global account_balance
-    global amount
-    global count
+    global ACCOUNT_BALANCE
+    global AMOUNT
+    global COUNT
     global list_operations
     cheack_ruch()
     bonus_prochent()
     while True:
-        amount = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
-        if amount % 50 == 0:
+        AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
+        if AMOUNT % 50 == 0:
             break
-    withdraw_tax = amount * WITHDRAW_PERCENT
+    withdraw_tax = AMOUNT * WITHDRAW_PERCENT
     withdraw_tax = (MIN_REMOVAL if withdraw_tax < MIN_REMOVAL 
                     else MAX_REMOVAL if withdraw_tax > MAX_REMOVAL else withdraw_tax)
     
-    if account_balance >= amount + withdraw_tax:
-        count += 1
-        account_balance -= (amount + withdraw_tax)
-        list_operations.append((f'Account withdrawal - {amount}'))
-        print(f'Credit card withdrawal {amount} y.e\n'
+    if ACCOUNT_BALANCE >= AMOUNT + withdraw_tax:
+        COUNT += 1
+        ACCOUNT_BALANCE -= (AMOUNT + withdraw_tax)
+        list_operations.append((f'Account withdrawal - {AMOUNT}'))
+        print(f'Credit card withdrawal {AMOUNT} y.e\n'
                 f'commission for withdrawal {withdraw_tax} y.e\n'
-                f'There is still money left on the credit card {account_balance} y.e')
+                f'There is still money left on the credit card {ACCOUNT_BALANCE} y.e')
     else:
         print(f'Insufficient funds on the credit card\n'
-                f'The requested amount {amount + withdraw_tax} y.e, the commission was {withdraw_tax}%\n'
-                f'Balance credit card {account_balance} y.e')
+                f'The requested amount {AMOUNT + withdraw_tax} y.e, the commission was {withdraw_tax}%\n'
+                f'Balance credit card {ACCOUNT_BALANCE} y.e')
     return 0
 
-
+# The function of checking for wealth, for tax calculation
 def cheack_ruch():
-    global account_balance
-    if account_balance > RICHNESS_SUM:
-            percent = account_balance * RICHNESS_TAX
-            account_balance -= percent
+    global ACCOUNT_BALANCE
+    if ACCOUNT_BALANCE > RICHNESS_SUM:
+            percent = ACCOUNT_BALANCE * RICHNESS_TAX
+            ACCOUNT_BALANCE -= percent
             print(f'Wealth tax withheld {RICHNESS_TAX}% in size {percent} y.e \n'
-                  f'Total left on the credit card {account_balance} y.e')
+                  f'Total left on the credit card {ACCOUNT_BALANCE} y.e')
     return 0
 
-
+# The function of calculating a percentage of the number of transactions
 def bonus_prochent():
-    global account_balance
-    global count
-    if count and count % COUNT_OPEN == 0:
-        bonus_percent = account_balance * ADD_PERCENT
-        account_balance += bonus_percent
+    global ACCOUNT_BALANCE
+    global COUNT
+    if COUNT and COUNT % COUNT_OPEN == 0:
+        bonus_percent = ACCOUNT_BALANCE * ADD_PERCENT
+        ACCOUNT_BALANCE += bonus_percent
         print(f'About credited {ADD_PERCENT}% for {bonus_percent} y.e\n'
-              f'Balance credit card {account_balance} y.e')
+              f'Balance credit card {ACCOUNT_BALANCE} y.e')
     return 0
 
-
+# The function shows a list of operations
 def show_list_operations():
-    for index, operation in enumerate(list_operations, start = 1):
-        print(f'Operation №: {index}. {operation} y.e')
+    if list_operations:
+        for index, operation in enumerate(list_operations, start = 1):
+            print(f'Operation №: {index}. {operation} y.e')
+    else:
+        print('No transactions were made with the account')
     return 0
 
-
+# The function menu
 def main():
     while True:
-        num = int(input('Bancomat menu:\n'
-            '1 - Add cash on a bank card\n'
-            '2 - Take off cash from a bank card\n'
-            '3 - Exit\n'
-            'Chose your operation: '))
-        
-        if num == 1:
-            add_money()
-        elif num == 2:
-            take_money()
-        elif num == 3:
-            print(f'Please, take your credit cart, your balance {account_balance} y.e, Good bye!')
-            return exit(0)
-        elif num == 9:
-            show_list_operations() 
+        try:
+            num = int(input('Bancomat menu:\n'
+                '1 - Add cash on a bank card\n'
+                '2 - Take off cash from a bank card\n'
+                '3 - Exit\n'
+                'Chose your operation: '))
+            
+            if num == 1:
+                add_money()
+            elif num == 2:
+                take_money()
+            elif num == 3:
+                print(f'Please, take your credit cart, your balance {ACCOUNT_BALANCE} y.e, Good bye!')
+                return exit(0)
+            elif num == 9:
+                show_list_operations()
+            else:
+                print('Please enter the correct number menu')
+        except ValueError:
+            print('Please enter the menu number')
+            continue 
     
 main()
