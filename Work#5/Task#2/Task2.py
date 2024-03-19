@@ -2,3 +2,14 @@
 # строку - абсолютный путь до файла. 
 # Функция возвращает кортеж из трёх элементов: 
 # путь, имя файла, расширение файла.
+
+import os
+
+def file_info(file_path):
+    filepath, filename = os.path.split(file_path)
+    filename, fileextension = os.path.splitext(filename)
+    return filepath, filename, fileextension
+
+file_path = "C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#5\\Task#2\\Task2.py"
+
+print(file_info(file_path))
