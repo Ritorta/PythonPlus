@@ -154,6 +154,21 @@
 # Если индекс выходит за пределы списка, сумма считается
 # до конца и/или начала списка.
 
+
+# def sum_number_index(my_list: list[int | float], i_1: int, i_2: int)\
+#       -> int | float:
+#     i_max = max(i_1, i_2)
+#     i_max_plus_1 = i_max if i_max < len(my_list) else len(my_list)
+#     i_min = min(i_1, i_2)
+#     i_min_plus_1 = i_min if i_min >= 0 else 0
+#     return sum(my_list[i_min_plus_1:i_max_plus_1])
+
+
+# i_1 = 10
+# i_2 = 2
+# num = [4, 8, 15, 16, 23, 42]
+# print(sum_number_index(num, i_1, i_2))
+
 #-----------
 # Задача №7
 #-----------
@@ -165,6 +180,32 @@
 # Если все компании прибыльные, верните истину,
 # а если хотябы одна убыточная ложь.
 
+# lambda and map
+# def final_income(my_dict: dict[str, list[int | float]]) -> bool:
+#     return all(map(lambda x: sum(x) > 0, my_dict.values()))
+
+
+# data = {
+#     'Horn': [42, -73, 12, 85, -15, 2],
+#     'Hoves': [45, 25, -100, 22, 1],
+#     'Tail': [-500, 123, 52, 45, 93]
+# }
+
+# print(final_income(data))
+
+# for generator
+# def final_income(my_dict: dict[str, list[int | float]]) -> bool:
+#     return all(sum(cur_list) > 0 for cur_list in my_dict.values())
+
+
+# data = {
+#     'Horn': [42, -73, 12, 85, -15, 2],
+#     'Hoves': [45, 25, -100, 22, 1],
+#     'Tail': [-500, 123, 52, 45, 93]
+# }
+
+# print(final_income(data))
+
 #-----------
 # Задача №8
 #-----------
@@ -174,3 +215,9 @@
 # оканчиваюзихся на "s" (кроме переменной из одной буквы "s") на None.
 # Значения не удаляются, а помещаются в одномёрнные переменные без "s" на конце.
 
+
+def _():
+    pass
+
+
+print()
