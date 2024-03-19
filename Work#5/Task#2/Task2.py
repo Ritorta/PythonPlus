@@ -5,7 +5,7 @@
 
 import os
 
-def file_info(file_path):
+def file_info(file_path: str) -> tuple:
     filepath, filename = os.path.split(file_path)
     filename, fileextension = os.path.splitext(filename)
     return filepath, filename, fileextension
