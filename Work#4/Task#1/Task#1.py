@@ -83,6 +83,7 @@
 
         
 # data_list = [8, 15, 42, 4, 23, 16, 500, 1, 3, 2, 999]
+
 # sort_list(data_list)
 # print(data_list)
 
@@ -98,6 +99,7 @@
            
                 
 # data_list = [8, 15, 42, 4, 23, 16, 500, 1, 3, 2, 999]
+
 # sort_list(data_list)
 # print(data_list)
 
@@ -167,6 +169,7 @@
 # i_1 = 10
 # i_2 = 2
 # num = [4, 8, 15, 16, 23, 42]
+
 # print(sum_number_index(num, i_1, i_2))
 
 #-----------
@@ -216,8 +219,21 @@
 # Значения не удаляются, а помещаются в одномёрнные переменные без "s" на конце.
 
 
-def _():
-    pass
+def value_changer():
+    globals_variables = globals()
+    new_dict = {}
+    for key, values in globals_variables.items():
+        if key.endswith('s') and key != 's':
+            new_dict[key[:-1]] = values
+            globals_variables[key] = None
+    for key, values in new_dict.items():
+        globals_variables[key] = values
 
 
-print()
+datas = [42, -73, 12, 85, -15, 2]
+s = 'Hello world!'
+names = ('NoName', 'OtherName', 'NewName')
+sx = 42
+
+value_changer()
+print(globals())
