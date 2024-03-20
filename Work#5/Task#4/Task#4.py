@@ -4,13 +4,11 @@
 # Вариант № 1
 #-------------
 
-from typing import Iterator
-
 a = 0
 b = 1
 
 
-def fib(a: int, b: int, num: int) -> Iterator[int]:
+def fib(a: int, b: int, num: int) -> int:
     for _ in range(num):
         yield a
         a, b = b, a + b

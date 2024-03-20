@@ -6,10 +6,8 @@
 # Вариант № 1
 #-------------
 
-# from typing import Any
 
-
-# def argument_dict(**kwargs) -> dict[str, Any]:
+# def argument_dict(**kwargs) -> dict[str]:
 #     result = {}
 #     for key, value in kwargs.items():
 #         if isinstance(value, dict):
@@ -28,10 +26,8 @@
 # Вариант № 2
 #-------------
 
-from typing import Any
 
-
-def argument_dict(**kwargs) -> dict[str, Any]:
+def argument_dict(**kwargs) -> dict[str]:
     result = {}
     for key, value in kwargs.items():
         try:
