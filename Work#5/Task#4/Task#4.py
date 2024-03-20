@@ -17,7 +17,10 @@ def fib(a: int, b: int, num: int) -> int:
 while True:
     try:
         num = int(input('Enter the number" '))
-        print(list(fib(a, b, num)))
+        if num == 0:
+            print(f'[0]')
+        else:
+            print(list(fib(a, b, num)))
     except ValueError:
         print('Please, enter the number')
         continue 
