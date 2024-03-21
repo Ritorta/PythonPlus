@@ -12,6 +12,12 @@
 # - Четвертое и все возможные последующие числа 
 # хранятся в кортеже как значения второго ключа
 
+# one, two, three, *other = input('Enter the number through "/": ').split('/')
+
+# my_dict = {int(two): int(one), int(three): tuple(map(int, other))}
+
+# print(my_dict)
+
 #-----------
 # Задача №2
 #-----------
@@ -21,15 +27,27 @@
 # а значение - код буквы.
 # Напишите преобразование в одну строку.
 
+# text = 'Thes information text, text — key, but key — first simbol, create thes dict to for set in one string.'
+
+# my_dict = {symbol: ord(symbol) for symbol in set(text)}
+
+# print(my_dict)
+
 #-----------
 # Задача №3
 #-----------
 
 # Продолжаем развивать задачу 2.
-# Возьмите словарь, который вы получили,
+# Возьмите словарь, который вы получили, 
 # сохраните его итератор.
 # Далее выведите первые 5 пар ключ-значение,
 # обращаясь к итератору, а не к словарю.
+
+text = 'Thes information text, text — key, but key — first simbol, create thes dict to for set in one string.'
+
+my_dict = {symbol: ord(symbol) for symbol in set(text)}
+
+print(my_dict)
 
 #-----------
 # Задача №4
