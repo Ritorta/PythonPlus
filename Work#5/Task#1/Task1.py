@@ -43,11 +43,15 @@
 # Далее выведите первые 5 пар ключ-значение,
 # обращаясь к итератору, а не к словарю.
 
-text = 'Thes information text, text — key, but key — first simbol, create thes dict to for set in one string.'
+# text = 'Thes information text, text — key, but key — first simbol, create thes dict to for set in one string.'
 
-my_dict = {symbol: ord(symbol) for symbol in set(text)}
+# COUNT = 5
 
-print(my_dict)
+# my_dict = {symbol: ord(symbol) for symbol in set(text)}
+# my_iter = iter(my_dict.items())
+
+# for _ in range(COUNT):
+#     print(*next(my_iter))
 
 #-----------
 # Задача №4
@@ -57,6 +61,9 @@ print(my_dict)
 # Из последовательности исключите числа, сумма
 # цифр которых равна 8
 # Решение в одну строку.
+
+# num_evens = (num for num in range(0, 100, 2) if (num % 10) + (num // 10) != 8)
+# print(*num_evens)
 
 #-----------
 # Задача №5
