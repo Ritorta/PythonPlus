@@ -39,10 +39,10 @@ def add_money():
     bonus_prochent()
     while True:
         AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY} y.e: '))
-        if AMOUNT % 50 == 0:
+        if AMOUNT % 50 == 0 and AMOUNT > 0:
             break
         else:
-            print('Error: you number not equals 50 y.e')
+            print('Error: you number not equals 50 y.e, not less than zero and not zero')        
     ACCOUNT_BALANCE += AMOUNT        
     COUNT += 1
     list_operations.append((f'Account replenishment - {AMOUNT}'))
@@ -60,10 +60,10 @@ def take_money():
     bonus_prochent()
     while True:
         AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
-        if AMOUNT % 50 == 0:
+        if AMOUNT % 50 == 0 and AMOUNT > 0:
             break
         else:
-            print('Error: you number not equals 50 y.e')
+            print('Error: you number not equals 50 y.e, not less than zero and not zero')  
     withdraw_tax = AMOUNT * WITHDRAW_PERCENT
     withdraw_tax = (MIN_REMOVAL if withdraw_tax < MIN_REMOVAL 
                     else MAX_REMOVAL if withdraw_tax > MAX_REMOVAL else withdraw_tax)
@@ -77,7 +77,7 @@ def take_money():
                 f'There is still money left on the credit card {ACCOUNT_BALANCE} y.e')
     else:
         print(f'Insufficient funds on the credit card\n'
-                f'The requested amount {AMOUNT + withdraw_tax} y.e, the commission was {withdraw_tax}%\n'
+                f'The requested amount {AMOUNT + withdraw_tax} y.e, and commission was {withdraw_tax}%\n'
                 f'Balance credit card {ACCOUNT_BALANCE} y.e')
     return 0
 
