@@ -7,7 +7,9 @@
 # в числовые параметры используйте генераторное выражение.
 
 from sys import argv as av
-from Task2 import *
+from Task2 import guess as gs
     
 if __name__ == '__main__':
-    print(av)
+    parameters = av[1:]
+    print(gs(*(int(param) for param in parameters)))
+    
