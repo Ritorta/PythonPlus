@@ -38,9 +38,11 @@ def add_money():
     cheack_ruch()
     bonus_prochent()
     while True:
-        AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
+        AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY} y.e: '))
         if AMOUNT % 50 == 0:
             break
+        else:
+            print('Error: you number not equals 50 y.e')
     ACCOUNT_BALANCE += AMOUNT        
     COUNT += 1
     list_operations.append((f'Account replenishment - {AMOUNT}'))
@@ -60,6 +62,8 @@ def take_money():
         AMOUNT = int(input(f'Enter sum, equals {MULTIPLICITY}: '))
         if AMOUNT % 50 == 0:
             break
+        else:
+            print('Error: you number not equals 50 y.e')
     withdraw_tax = AMOUNT * WITHDRAW_PERCENT
     withdraw_tax = (MIN_REMOVAL if withdraw_tax < MIN_REMOVAL 
                     else MAX_REMOVAL if withdraw_tax > MAX_REMOVAL else withdraw_tax)
