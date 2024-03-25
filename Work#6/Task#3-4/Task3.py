@@ -29,7 +29,6 @@
 #     result = atack_queens(board)
 #     print(result)
 
-
 #-----------
 # Вариант №2
 #-----------

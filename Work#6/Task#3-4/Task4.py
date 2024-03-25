@@ -7,45 +7,37 @@
 # Вариант №1
 #-----------
 
-# from Task3 import atack_queens as aq
+from Task3 import atack_queens as aq
 
-# import random
+import random
 
-# successful_arrangements = 0
 
-# while successful_arrangements < 4:
+def random_cordinat_queens():
     
-#     queens_positions = [(i + 1, random.randint(1, 8)) for i in range(8)]
-    
-#     board = [pos[1] for pos in queens_positions]
+    count = 0
+    result = []
 
-#     result = aq(board)
-    
-#     if result:
-#         print("Successful arrangement:", queens_positions)
-#         successful_arrangements += 1
+    while count < 4:
+        
+        queens_positions = [(i + 1, random.randint(1, 8)) for i in range(8)]
+        
+        board = [pos[1] for pos in queens_positions]
+        cheak_board = aq(board)
+        
+        if cheak_board:
+            result.append(queens_positions)
+            count += 1
+            
+    return result
+
+
+if __name__ == '__main__':
+    result = random_cordinat_queens()
+    for nn, value in enumerate(result, start=1):
+        print(f'Successful arrangement № {nn}: {value}')
 
 #-----------
 # Вариант №2
 #-----------
         
-from Task3 import atack_queens as aq
-#from Task3 import print_board as pb
 
-import random
-
-successful_arrangements = 0
-
-while successful_arrangements < 4:
-    queens_positions = [(i + 1, random.randint(1, 8)) for i in range(8)]
-
-    board = [pos[1] for pos in queens_positions]
-
-    result = aq(board)
-
-    if result:
-        print("Successful arrangement:", queens_positions)
-        result_list = queens_positions
-        successful_arrangements += 1
-        
-        
