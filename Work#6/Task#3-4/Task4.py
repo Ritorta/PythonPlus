@@ -74,4 +74,3 @@ if __name__ == '__main__':
             board[row - 1][col - 1] = 1
         pb(board)
         print(f'Successful arrangement № {nn}: {value}')
-        
