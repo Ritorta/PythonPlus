@@ -84,16 +84,6 @@ def atack_queens(board: int) -> bool:
     return True
 
 
-queens_positions = [(1, 4), (2, 2), (3, 7), (4, 3), (5, 6), (6, 8), (7, 5), (8, 1)]
-
-board = [[0]*8 for _ in range(8)]
-for row, col in queens_positions:
-    board[row - 1][col - 1] = 1
-
-success, final_board = queens(board)
-result = atack_queens([row.index(1) + 1 for row in final_board])
-
-
 def print_board(board: list) -> list:
     for row in board:
         print(" ".join("Q" if cell == 1 else "." for cell in row))
@@ -108,4 +98,15 @@ def print_board(board: list) -> list:
     else:
         print(f'Fail, queens beat each other = {result}')
 
-print_board(board)
+
+if __name__ == '__main__':
+
+    queens_positions = [(1, 4), (2, 2), (3, 7), (4, 3), (5, 6), (6, 8), (7, 5), (8, 1)]
+
+    board = [[0]*8 for _ in range(8)]
+    for row, col in queens_positions:
+        board[row - 1][col - 1] = 1
+
+    success, final_board = queens(board)
+    result = atack_queens([row.index(1) + 1 for row in final_board])
+    print_board(board)
