@@ -40,4 +40,3 @@ def show_results():
 if __name__ == '__main__':
     storage()
     show_results()
-    
