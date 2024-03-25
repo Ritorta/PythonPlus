@@ -3,6 +3,8 @@
 # в задаче выше. Проверяйте различные случайные варианты и
 # выведите 4 успешных расстановки.
 
+import Work6.Task#3
+from Task3 import atack_queens by aq
 
 import random
 
