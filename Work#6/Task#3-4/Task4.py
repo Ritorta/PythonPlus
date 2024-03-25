@@ -3,29 +3,49 @@
 # в задаче выше. Проверяйте различные случайные варианты и
 # выведите 4 успешных расстановки.
 
-import Work6.Task#3
-from Task3 import atack_queens by aq
+#-----------
+# Вариант №1
+#-----------
+
+# from Task3 import atack_queens as aq
+
+# import random
+
+# successful_arrangements = 0
+
+# while successful_arrangements < 4:
+    
+#     queens_positions = [(i + 1, random.randint(1, 8)) for i in range(8)]
+    
+#     board = [pos[1] for pos in queens_positions]
+
+#     result = aq(board)
+    
+#     if result:
+#         print("Successful arrangement:", queens_positions)
+#         successful_arrangements += 1
+
+#-----------
+# Вариант №2
+#-----------
+        
+from Task3 import atack_queens as aq
+#from Task3 import print_board as pb
 
 import random
-
-def is_beating_queens(board):
-    for i in range(len(board)):
-        for j in range(i+1, len(board)):
-            if board[i] == board[j] or abs(board[i] - board[j]) == abs(i - j):
-                return False
-    return True
 
 successful_arrangements = 0
 
 while successful_arrangements < 4:
-    # Генерируем случайные координаты ферзей
-    queens_positions = [(i+1, random.randint(1, 8)) for i in range(8)]
-    
-    # Преобразуем координаты ферзей в список доски
+    queens_positions = [(i + 1, random.randint(1, 8)) for i in range(8)]
+
     board = [pos[1] for pos in queens_positions]
 
-    result = is_beating_queens(board)
-    
+    result = aq(board)
+
     if result:
         print("Successful arrangement:", queens_positions)
+        result_list = queens_positions
         successful_arrangements += 1
+        
+        
