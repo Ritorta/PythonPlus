@@ -74,7 +74,7 @@ def queens(board: int, row = 0) -> bool:
     return False, board
 
 
-def atack_queens(board: int) -> bool:
+def attack_queens(board: int) -> bool:
     n = len(board)
     for i in range(n):
         for j in range(i + 1, n):
