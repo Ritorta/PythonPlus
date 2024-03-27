@@ -17,7 +17,7 @@ from string import ascii_lowercase, digits
 from pathlib import Path
 
 
-def create_file(file_path: Path, extension: str, min_len: int = 6, max_len: int = 30,\
+def create_file(file_path: str | Path, extension: str, min_len: int = 6, max_len: int = 30,\
         min_size: int = 256, max_size: int = 4096, count: int = 42) -> None:
     for _ in range(count):
         file_name = ''.join(choices(ascii_lowercase + digits + '_', k = randint(min_len, max_len))) + f'.{extension}'

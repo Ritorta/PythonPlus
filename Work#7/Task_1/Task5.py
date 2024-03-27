@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 
-def generate_file(file_path: Path, **kwargs) -> None:
+def generate_file(file_path: str | Path, **kwargs) -> None:
     for extension, amount in kwargs.items():
         cf(file_path, extension, count=amount)
 
