@@ -8,12 +8,15 @@
 # Внутри используйте вызов функции из прошлой задачи.
 
 from Task4 import create_file as cf
+from pathlib import Path
 
 
-def generate_file(**kwargs) -> None:
-    for extension, amount in kwargs.items:
-        cf(extension, count=amount)
+
+def generate_file(file_path: Path, **kwargs) -> None:
+    for extension, amount in kwargs.items():
+        cf(file_path, extension, count=amount)
 
 
 if __name__ == '__main__':
-    generate_file(bin=2, jpeg=3, txt=1)
+    path = Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\Results')
+    generate_file(path, bin=2, jpeg=3, txt=1)

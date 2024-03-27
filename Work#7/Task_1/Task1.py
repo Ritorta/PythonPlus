@@ -21,4 +21,4 @@ def fill_num(filename: str | Path, count: int) -> None:
             f.write(f'{num_int}|{num_float}\n')
 
 if __name__ == '__main__':
-    fill_num(Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\numbers.txt'), 256)
+    fill_num(Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\Results\\numbers.txt'), 256)

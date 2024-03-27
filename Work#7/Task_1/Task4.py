@@ -27,5 +27,5 @@ def create_file(file_path: Path, extension: str, min_len: int = 6, max_len: int 
 
 
 if __name__ == '__main__':
-    path = Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1')
+    path = Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\Results')
     create_file(path, 'txt', count = 2)

@@ -28,4 +28,4 @@ def random_names(filename: str | Path, count: int) -> None:
             print(name.title(), file=f)
 
 if __name__ == '__main__':
-    random_names(Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\names.txt'), 120)
+    random_names(Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\Results\\names.txt'), 120)
