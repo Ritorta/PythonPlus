@@ -7,3 +7,13 @@
 # Количество файлов для каждого расширения различно.
 # Внутри используйте вызов функции из прошлой задачи.
 
+from Task4 import create_file as cf
+
+
+def generate_file(**kwargs) -> None:
+    for extension, amount in kwargs.items:
+        cf(extension, count=amount)
+
+
+if __name__ == '__main__':
+    generate_file(bin=2, jpeg=3, txt=1)
