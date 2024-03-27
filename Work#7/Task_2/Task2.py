@@ -56,6 +56,7 @@
 
 from pathlib import Path
 
+
 def group_rename_files(new_end_file_name: str, count_dig: int, ext_renamed: str, ext_new: str='', saved_range: range=(0, -1), path: str=None) -> int:
     
     """
@@ -88,6 +89,7 @@ def group_rename_files(new_end_file_name: str, count_dig: int, ext_renamed: str,
         new_path = path.joinpath(new_name)
         file.rename(new_path)
         count_renamed += 1
+
 
 if __name__ == '__main__':
     group_rename_files("test", 3, ".txt", ".doc", (3, 6))
