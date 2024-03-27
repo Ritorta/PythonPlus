@@ -53,9 +53,9 @@ os.makedirs(os.path.join(main_path, 'sort'), exist_ok=True)
 
 def create_folders_from_list(folder_path, folder_names):
     for folder in folder_names:
-        # if not os.path.exists(f'{folder_path}\\{folder}'): # - Этот фрагмент кода не сортирует в подпапку sort
+        # if not os.path.exists(f'{folder_path}\\{folder}'): # - Этот фрагмент кода не переносит папки с файлами в подпапку sort
         #     os.mkdir(f'{folder_path}\\{folder}')
-        if not os.path.exists(f'{folder_path}\\sort\\{folder}'):
+        if not os.path.exists(f'{folder_path}\\sort\\{folder}'): # Этот фрагмент кода переносит папки с файлами в подпапку sort
             os.mkdir(f'{folder_path}\\sort\\{folder}')
 
 extensions = {
@@ -81,26 +81,19 @@ extensions = {
 }
 
 
-def get_subfolder_paths(folder_path) -> list:
+def get_subfolder_paths(folder_path: str) -> list:
     subfolder_paths = [f.path for f in os.scandir(folder_path) if f.is_dir()]
 
     return subfolder_paths
 
 
-def get_file_paths(folder_path) -> list:
+def get_file_paths(folder_path: str) -> list:
     file_paths = [f.path for f in os.scandir(folder_path) if not f.is_dir()]
 
     return file_paths
 
 
-def get_file_names(folder_path) -> list:
-    file_paths = [f.path for f in os.scandir(folder_path) if not f.is_dir()]
-    file_names = [f.split('\\')[-1] for f in file_paths]
-
-    return file_names
-
-
-def sort_files(folder_path):
+def sort_files(folder_path: str):
     file_paths = get_file_paths(folder_path)
     ext_list = list(extensions.items())
 
@@ -110,12 +103,13 @@ def sort_files(folder_path):
         for dict_key_int in range(len(ext_list)):
             if extension in ext_list[dict_key_int][1]:
                 print(f'Moving {file_name} in {ext_list[dict_key_int][0]} folder\n')
-                # os.rename(file_path, f'{main_path}\\{ext_list[dict_key_int][0]}\\{file_name}') # - Этот фрагмент кода не сортирует в подпапку sort
-                os.rename(file_path, f'{main_path}\\sort\\{ext_list[dict_key_int][0]}\\{file_name}')
+                # os.rename(file_path, f'{main_path}\\{ext_list[dict_key_int][0]}\\{file_name}') # - Этот фрагмент кода не переносит папки с файлами в подпапку sort
+                os.rename(file_path, f'{main_path}\\sort\\{ext_list[dict_key_int][0]}\\{file_name}') # Этот фрагмент кода переносит папки с файлами в подпапку sort
+               
 
-def remove_empty_folders(folder_path):
-    # subfolder_paths = get_subfolder_paths(folder_path) # - Этот фрагмент кода не сортирует в подпапку sort
-    subfolder_paths = get_subfolder_paths(f'{folder_path}\\sort')
+def remove_empty_folders(folder_path: str):
+    # subfolder_paths = get_subfolder_paths(folder_path) # - Этот фрагмент кода не переносит папки с файлами в подпапку sort
+    subfolder_paths = get_subfolder_paths(f'{folder_path}\\sort') # Этот фрагмент кода переносит папки с файлами в подпапку sort
 
     for p in subfolder_paths:
         if not os.listdir(p):
