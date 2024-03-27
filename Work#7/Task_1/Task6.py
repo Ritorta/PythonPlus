@@ -38,4 +38,4 @@ def generate_file(file_path: str | Path, **kwargs) -> None:
 
 if __name__ == '__main__':
     path = Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#7\\Task_1\\Results')
-    generate_file(path, txt=1)
+    generate_file(path / 'new', txt=1)
