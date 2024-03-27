@@ -58,7 +58,7 @@ def check_attack(board: int, row: int, column: int) -> bool:
     return False
 
 
-def place_queens(board: int, row = 0) -> bool:
+def place_queens(board: int, row: int = 0) -> bool:
 
     n = len(board)
 
