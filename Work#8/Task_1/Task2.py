@@ -43,7 +43,7 @@ def set_users(file: Path) -> None:
                 json.dump(data, f_write, indent=2, ensure_ascii=False)
 
 if __name__ == '__main__':    
-    set_users(Path(path / 'user.json'))
+    set_users(Path(path / 'users.json'))
 
 #-----------
 # Вариант №2 - id уникальны и не могут повторяться, имена не перезаписываются.
@@ -78,4 +78,4 @@ if __name__ == '__main__':
 #                 uids.add(id)
 
 # if __name__ == '__main__':
-#     set_users(os.path.join(path, 'user.json'))
+#     set_users(os.path.join(path, 'users.json'))
