@@ -31,7 +31,7 @@ def pickl_to_csv(picl_file: Path) -> None:
 
 
 if __name__ == '__main__':
-    pickl_to_csv(Path(path / 'new_users.pickle'))
+    pickl_to_csv(Path('new_users.pickle'))
 
 #-----------
 # Вариант №2
