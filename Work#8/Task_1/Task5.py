@@ -10,8 +10,8 @@ from pathlib import Path
 path = Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучению\\Обучение Ai\\PythonPlus\\Work#8\\Task_1\\Result')
 
 
-def json_to_pickle(der_path: Path) -> None:
-    for file in der_path.iterdir():
+def json_to_pickle(js_path: Path) -> None:
+    for file in js_path.iterdir():
         if file.is_file() and file.suffix == '.json':
             with open(path / file, 'r', encoding='utf-8') as f_read:
                 data =json.load(f_read)
