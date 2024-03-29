@@ -17,8 +17,8 @@ path = Path('C:\\Users\\Esdesu\\Documents\\Материалы по обучен�
 
 
 def csv_to_json(csv_file: Path, json_file: Path) -> None:
+    
     json_list = []
-
 
     with open(path / csv_file, 'r', encoding='utf-8', newline='') as f_read:
         csv_read = csv.reader(f_read, dialect='excel-tab')
@@ -37,7 +37,6 @@ def csv_to_json(csv_file: Path, json_file: Path) -> None:
     with open(path / json_file, 'w', encoding='utf-8') as f_write:
         json.dump(json_list, f_write, indent=2)
                 
-
 
 if __name__ == '__main__':
     csv_to_json(Path('users.csv'), Path('new_users.json'))
