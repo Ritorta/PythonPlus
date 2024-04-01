@@ -45,15 +45,15 @@ def directory_walker(fille: Path) -> list:
 
 
 def save_to_json(data: list) -> None:
-    with open(path / 'directory_info.json', 'w') as json_file:
+    with open(path / 'directory_info.json', 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, indent=2)
 
 
 def save_to_csv(data: list) -> None:
     csv_columns = ['name', 'is_file', 'size_in_bytes', 'parent_directory']
     csv_filename = "directory_info.csv"
-    with open(path / csv_filename, 'w') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
+    with open(path / csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=csv_columns, dialect='excel-tab')
         writer.writeheader()
         writer.writerows(data)
 
